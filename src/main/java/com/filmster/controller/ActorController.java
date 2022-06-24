@@ -1,7 +1,6 @@
 package com.filmster.controller;
 
 import com.filmster.dto.ActorDTO;
-import com.filmster.entity.Actor;
 import com.filmster.service.ActorService;
 import com.filmster.service.data.ActorData;
 import io.swagger.annotations.Api;
@@ -61,10 +60,10 @@ public class ActorController {
         return new ResponseEntity<>(actorService.findAllMaleActors(), HttpStatus.OK);
     }
 
-    @Operation(summary = "Find all Actress", description = "Retrieve all Actress from DB")
+    @Operation(summary = "Find all Actresses", description = "Retrieve all Actresses from DB")
     @GetMapping("/female")
-    public ResponseEntity<List<ActorDTO>> findAllActress() {
-        return new ResponseEntity<>(actorService.findAllActress(), HttpStatus.OK);
+    public ResponseEntity<List<ActorDTO>> findAllActresses() {
+        return new ResponseEntity<>(actorService.findAllActresses(), HttpStatus.OK);
     }
 
 }

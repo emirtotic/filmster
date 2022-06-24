@@ -15,6 +15,5 @@ import java.util.Set;
 @JsonInclude(value = JsonInclude.Include.NON_EMPTY)
 public class GenreDTO {
 
-    private Long id;
     private String name;
 }

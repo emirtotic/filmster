@@ -94,12 +94,12 @@ public class ActorServiceImpl implements ActorService {
     }
 
     /**
-     * Finding all Actress from DB
+     * Finding all Actresses from DB
      *
-     * @return List<ActorDTO> with all Actress
+     * @return List<ActorDTO> with all Actresses
      */
     @Override
-    public List<ActorDTO> findAllActress() {
-        return actorMapper.mapToActorDTOList(actorRepository.findAllActress());
+    public List<ActorDTO> findAllActresses() {
+        return actorMapper.mapToActorDTOList(actorRepository.findAllActresses());
     }
 }

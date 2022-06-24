@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Primary;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = {ActorMapper.class}, unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = "spring", uses = {MovieMapper.class}, unmappedTargetPolicy = ReportingPolicy.IGNORE)
 @Primary
 @DecoratedWith(ActorMapperDecorator.class)
 public interface ActorMapper {
@@ -21,6 +21,7 @@ public interface ActorMapper {
     ActorDTO mapToDto(Actor actor);
     List<Actor> mapToActorList(List<ActorDTO> actorDTOS);
     List<ActorDTO> mapToActorDTOList(List<Actor> actors);
-
+    List<Actor> mapActors(List<Integer> actors);
+    Actor mapActor(Integer actor);
     Actor mapDataToEntity(ActorData actorData);
 }

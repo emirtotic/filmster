@@ -16,10 +16,9 @@ import java.util.List;
 @JsonInclude(value = JsonInclude.Include.NON_EMPTY)
 public class ActorDTO {
 
-    private Long id;
     private String firstName;
     private String lastName;
     private int age;
     private Gender gender;
-    //private List<MovieDTO> movies;
+    private List<String> actorMovies;
 }

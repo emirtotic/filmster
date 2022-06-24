@@ -20,7 +20,7 @@ public class MovieData {
     private String description;
     private String director;
     private Integer year;
-    private List<Actor> actors;
+    private List<Integer> actors;
     private Set<Integer> genre = new HashSet<>();
     private Popularity popularity;
 }

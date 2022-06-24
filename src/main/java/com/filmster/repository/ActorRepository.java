@@ -14,6 +14,6 @@ public interface ActorRepository extends JpaRepository<Actor, Long> {
     List<Actor> findAllMaleActors();
 
     @Query(value = "SELECT * FROM Actor where gender = 'FEMALE'", nativeQuery = true)
-    List<Actor> findAllActress();
+    List<Actor> findAllActresses();
 
 }

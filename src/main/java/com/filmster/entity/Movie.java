@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 @NoArgsConstructor
@@ -41,15 +42,15 @@ public class Movie {
     @Column
     private Integer year;
 
-//    @ManyToMany(
-//            targetEntity=Actor.class,
-//            cascade={CascadeType.PERSIST, CascadeType.MERGE}
-//    )
-//    @JoinTable(
-//            joinColumns=@JoinColumn(name="movie_id"),
-//            inverseJoinColumns=@JoinColumn(name="actor_id")
-//    )
-//    private List<Actor> actors = new ArrayList<>();
+    @ManyToMany(
+            targetEntity=Actor.class,
+            cascade={CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH}
+    )
+    @JoinTable(
+            joinColumns=@JoinColumn(name="movie_id"),
+            inverseJoinColumns=@JoinColumn(name="actor_id")
+    )
+    private List<Actor> actors = new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {
@@ -66,4 +67,19 @@ public class Movie {
     @Column
     private Popularity popularity;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Movie)) return false;
+        Movie movie = (Movie) o;
+        return Objects.equals(getId(), movie.getId()) && Objects.equals(getName(), movie.getName()) &&
+                Objects.equals(getDescription(), movie.getDescription()) && Objects.equals(getDirector(), movie.getDirector()) &&
+                Objects.equals(getYear(), movie.getYear()) && Objects.equals(getActors(), movie.getActors()) &&
+                Objects.equals(getGenre(), movie.getGenre()) && getPopularity() == movie.getPopularity();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getName(), getDescription(), getDirector(), getYear(), getActors(), getGenre(), getPopularity());
+    }
 }

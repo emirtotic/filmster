@@ -2,6 +2,7 @@ package com.filmster.mapper.decorator;
 
 import com.filmster.dto.ActorDTO;
 import com.filmster.entity.Actor;
+import com.filmster.exception.ActorNotFound;
 import com.filmster.mapper.ActorMapper;
 import com.filmster.repository.ActorRepository;
 import com.filmster.service.data.ActorData;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class ActorMapperDecorator implements ActorMapper{
 
@@ -31,5 +34,20 @@ public abstract class ActorMapperDecorator implements ActorMapper{
         ActorDTO actorDTO = actorMapper.mapToDto(actor);
         actorDTO.setAge(Integer.valueOf(LocalDate.now().getYear() - actor.getDateOfBirth().getYear()));
         return actorDTO;
+    }
+
+    @Override
+    public List<Actor> mapActors(List<Integer> actors) {
+        List<Actor> actorList = new ArrayList<>();
+        if (!actors.isEmpty()) {
+            actors.forEach(actor -> actorList.add(mapActor(actor)));
+        }
+        return actorList;
+    }
+
+    @Override
+    public Actor mapActor(Integer actor) {
+        return actorRepository.findById(Long.valueOf(actor))
+                .orElseThrow(() -> new ActorNotFound(Long.valueOf(actor)));
     }
 }

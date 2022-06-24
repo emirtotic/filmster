@@ -10,6 +10,7 @@ import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -48,4 +49,15 @@ public class Actor {
 //            targetEntity = Movie.class
 //    )
 //    private List<Movie> movies;
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Actor)) return false;
+        Actor actor = (Actor) o;
+        return Objects.equals(getId(), actor.getId()) && getFirstName().equals(actor.getFirstName()) &&
+                getLastName().equals(actor.getLastName()) && Objects.equals(getDateOfBirth(), actor.getDateOfBirth()) &&
+                getGender() == actor.getGender();
+    }
 }

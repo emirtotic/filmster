@@ -1,7 +1,6 @@
 package com.filmster.service;
 
 import com.filmster.dto.ActorDTO;
-import com.filmster.entity.Actor;
 import com.filmster.service.data.ActorData;
 
 import java.util.List;
@@ -49,8 +48,8 @@ public interface ActorService {
     List<ActorDTO> findAllMaleActors();
 
     /**
-     * Finding all Actress from DB
-     * @return List<ActorDTO> with all Actress
+     * Finding all Actresses from DB
+     * @return List<ActorDTO> with all Actresses
      */
-    List<ActorDTO> findAllActress();
+    List<ActorDTO> findAllActresses();
 }

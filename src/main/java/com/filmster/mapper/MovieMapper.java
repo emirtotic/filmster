@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Primary;
 import java.util.List;
 import java.util.Set;
 
-@Mapper(componentModel = "spring", uses = {GenreMapper.class}, unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = "spring", uses = {GenreMapper.class, ActorMapper.class}, unmappedTargetPolicy = ReportingPolicy.IGNORE)
 @Primary
 @DecoratedWith(MovieDecoratorMapper.class)
 public interface MovieMapper {
