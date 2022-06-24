@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2819a959-19cd-40b4-a525-154efde74c1c">
+    <parameter name="movieReport" class="com.filmster.service.report.MovieReport"/>
+    <queryString>
+        <![CDATA[]]>
+    </queryString>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="208" splitType="Stretch">
+            <textField isBlankWhenNull="true">
+                <reportElement x="-2" y="130" width="550" height="59" uuid="6cf20d56-fa57-4693-a383-395708456d4b"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Arial Rounded MT Bold" size="26" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{movieReport}.getMovieName()]]></textFieldExpression>
+            </textField>
+            <image>
+                <reportElement x="0" y="20" width="140" height="80" uuid="785703ae-b8fe-4071-81c5-ed019feb4e38"/>
+                <imageExpression><![CDATA["https://i.pinimg.com/736x/0c/32/97/0c3297f3516a415219c7e89e16a4a3d2.jpg"]]></imageExpression>
+            </image>
+            <staticText>
+                <reportElement mode="Transparent" x="120" y="20" width="424" height="80" backcolor="#5C876D" uuid="d4b01b02-1618-4bf5-878b-c226aa6d431c"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="26"/>
+                </textElement>
+                <text><![CDATA[FILMSTER REPORT]]></text>
+            </staticText>
+            <frame>
+                <reportElement mode="Opaque" x="-20" y="180" width="594" height="10" backcolor="#5E170C" uuid="71c562af-47d9-47a3-a2f4-a37e3aa2696d"/>
+            </frame>
+            <frame>
+                <reportElement mode="Opaque" x="-30" y="112" width="610" height="10" backcolor="#5E170C" uuid="7133d5f4-25d2-44ec-831f-63c2dc7e6e35"/>
+            </frame>
+            <frame>
+                <reportElement mode="Opaque" x="-30" y="-20" width="610" height="30" backcolor="#5E170C" uuid="25b0965f-4a6d-43e1-b5b2-fb3f5a4d112d"/>
+            </frame>
+        </band>
+    </title>
+    <columnHeader>
+        <band height="345" splitType="Stretch">
+            <textField isBlankWhenNull="true">
+                <reportElement x="110" y="20" width="420" height="70" uuid="0596ce1e-2c05-46c8-aafc-225b77a9bc87"/>
+                <textElement textAlignment="Justified">
+                    <font size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{movieReport}.getDescription()]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="110" y="100" width="440" height="30" uuid="a9004a4e-9007-4909-8de6-bd535826fb67"/>
+                <textElement>
+                    <font size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{movieReport}.getDirector()]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="110" y="141" width="160" height="30" uuid="a7af6016-1332-46ad-a56f-c9258a1906e3"/>
+                <textElement>
+                    <font size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{movieReport}.getYear()]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="110" y="182" width="160" height="30" uuid="eb52a1d6-3f18-46b6-ac58-95f4006c9393"/>
+                <textElement>
+                    <font size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{movieReport}.getPopularity()]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="20" width="100" height="41" uuid="d40b6158-fba2-44c0-9f4d-67a39210abe3"/>
+                <textElement>
+                    <font size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Description:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="100" width="100" height="41" uuid="8cebcc24-ca0b-4583-a0d0-a2b5e9e80afa"/>
+                <textElement>
+                    <font size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Director:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="141" width="100" height="41" uuid="2342687c-79a0-4aff-9147-39dc90cfb6f1"/>
+                <textElement>
+                    <font size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Released:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="182" width="100" height="41" uuid="d155a0a3-3942-43dd-8ac1-edafc9927535"/>
+                <textElement>
+                    <font size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Popularity:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="223" width="100" height="41" uuid="cdd6b445-086c-4397-93e3-162453185cb2"/>
+                <textElement>
+                    <font size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Genre:]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="110" y="223" width="440" height="30" uuid="2edee5ce-b83c-47de-b90e-7dddf060cb0e"/>
+                <textElement>
+                    <font size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{movieReport}.getGenre().toString().substring(1, $P{movieReport}.getGenre().toString().length()-1)]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="264" width="100" height="41" uuid="babacec8-292e-4481-a62d-aa01956a9053"/>
+                <textElement>
+                    <font size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Top Cast:]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="110" y="264" width="440" height="30" uuid="21adf99b-a778-4931-a737-362f79f772e4"/>
+                <textElement>
+                    <font size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{movieReport}.getActors().toString().substring(1, $P{movieReport}.getActors().toString().length()-1)]]></textFieldExpression>
+            </textField>
+        </band>
+    </columnHeader>
+    <pageFooter>
+        <band height="50">
+            <staticText>
+                <reportElement positionType="Float" mode="Opaque" x="-1" y="11" width="556" height="30" backcolor="#E6E8E9" uuid="bfefa804-c88a-4e78-8e25-3f80d5cec6b9"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Serif" size="9" isItalic="true"/>
+                </textElement>
+                <text><![CDATA[THIS REPORT IS CREATED BY FILMSTER APPLICATION]]></text>
+            </staticText>
+        </band>
+    </pageFooter>
+</jasperReport>

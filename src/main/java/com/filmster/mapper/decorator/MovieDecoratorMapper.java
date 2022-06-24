@@ -20,8 +20,6 @@ public abstract class MovieDecoratorMapper implements MovieMapper {
     @Autowired
     private ActorMapper actorMapper;
 
-
-
     @Override
     public Movie mapDataToEntity(MovieData movieData) {
 

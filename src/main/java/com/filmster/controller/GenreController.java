@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/genre")
-@Validated // TODO Check what is this exactly!
+@Validated
 @Api(value = "List of Genre API interfaces", tags = "03 Genre")
 public class GenreController {
 

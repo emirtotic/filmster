@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/movie")
-@Validated // TODO Check what is this exactly!
+@Validated
 @Api(value = "List of Movie API interfaces", tags = "01 Movie")
 public class MovieController {
 

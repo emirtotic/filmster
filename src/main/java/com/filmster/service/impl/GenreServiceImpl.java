@@ -38,7 +38,6 @@ public class GenreServiceImpl implements GenreService {
     @Override
     public GenreDTO findById(Long id) {
         return genreMapper.mapToDto(genreRepository.findById(id).orElseThrow(() -> new GenreNotFound(id)));
-        // TODO Check exception implementation
     }
 
     /**

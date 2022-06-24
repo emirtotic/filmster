@@ -17,7 +17,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/actor")
-@Validated // TODO Check what is this exactly!
+@Validated
 @Api(value = "List of Actor API interfaces", tags = "02 Actor")
 public class ActorController {
 
