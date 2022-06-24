@@ -2,6 +2,7 @@ package com.filmster.service;
 
 import com.filmster.dto.MovieDTO;
 import com.filmster.entity.Movie;
+import com.filmster.enums.Popularity;
 import com.filmster.service.data.MovieData;
 
 import java.util.List;
@@ -37,6 +38,13 @@ public interface MovieService {
     MovieDTO updateMovie(Long id, MovieData movieData);
 
     /**
+     * Finding movie by id
+     * @param id
+     * @return MovieDTO
+     */
+    MovieDTO findMovieById(Long id);
+
+    /**
      *
      * @param id
      */
@@ -69,4 +77,11 @@ public interface MovieService {
      * @return List<MovieDTO>
      */
     List<MovieDTO> findMoviesByYearAndGenre(int year, String genre);
+
+    /**
+     * Find movies by popularity status
+     * @param popularity
+     * @return List<MovieDTO> with desired popularity
+     */
+    List<MovieDTO> findAllMoviesByPopularity(Popularity popularity);
 }

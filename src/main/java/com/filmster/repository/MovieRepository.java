@@ -1,6 +1,7 @@
 package com.filmster.repository;
 
 import com.filmster.entity.Movie;
+import com.filmster.enums.Popularity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -22,4 +23,7 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
 
     @Query("SELECT m FROM Movie m WHERE m.year > :year")
     List<Movie> findAllMoviesAfterYear(@Param("year") int year);
+
+    @Query("SELECT m FROM Movie m WHERE lower(m.popularity) = :popularity")
+    List<Movie> findAllByPopularity(@Param("popularity") Popularity popularity);
 }

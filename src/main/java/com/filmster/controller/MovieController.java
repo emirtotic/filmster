@@ -1,6 +1,7 @@
 package com.filmster.controller;
 
 import com.filmster.dto.MovieDTO;
+import com.filmster.enums.Popularity;
 import com.filmster.service.MovieService;
 import com.filmster.service.data.MovieData;
 import io.swagger.annotations.Api;
@@ -43,6 +44,13 @@ public class MovieController {
         return new ResponseEntity<>(movieService.findAllByName(searchTerm), HttpStatus.OK);
     }
 
+    @Operation(summary = "Find Movie by ID", description = "Finding Movie from DB by ID")
+    @GetMapping("/search/id/{movieId}")
+    public ResponseEntity<MovieDTO> findMovieById(
+            @PathVariable(name = "movieId") Long id) {
+        return new ResponseEntity<>(movieService.findMovieById(id), HttpStatus.OK);
+    }
+
     @Operation(summary = "Update Movie", description = "Update Movie")
     @PutMapping("/update/{movieId}")
     public ResponseEntity<MovieDTO> updateMovie(@PathVariable(name = "movieId") Long id,
@@ -80,5 +88,11 @@ public class MovieController {
     public ResponseEntity<List<MovieDTO>> findAllMoviesByYearAndGenre(@RequestParam int year,
                                                                  @RequestParam String genre) {
         return new ResponseEntity<>(movieService.findMoviesByYearAndGenre(year, genre), HttpStatus.OK);
+    }
+
+    @Operation(summary = "Find Movies by popularity", description = "Finding Movies by popularity")
+    @GetMapping("/search/popularity/{popularity}")
+    public ResponseEntity<List<MovieDTO>> findAllMoviesByPopularity(@RequestParam(name = "popularity") Popularity popularity) {
+        return new ResponseEntity<>(movieService.findAllMoviesByPopularity(popularity), HttpStatus.OK);
     }
 }

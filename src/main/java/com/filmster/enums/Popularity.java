@@ -19,6 +19,6 @@ public enum Popularity {
 
     @Override
     public String toString() {
-        return "Popularity : " + code;
+        return code;
     }
 }

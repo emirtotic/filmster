@@ -2,6 +2,7 @@ package com.filmster.service.impl;
 
 import com.filmster.dto.MovieDTO;
 import com.filmster.entity.Movie;
+import com.filmster.enums.Popularity;
 import com.filmster.exception.MovieNotFound;
 import com.filmster.mapper.ActorMapper;
 import com.filmster.mapper.GenreMapper;
@@ -88,6 +89,17 @@ public class MovieServiceImpl implements MovieService {
     }
 
     /**
+     * Finding movie by id
+     *
+     * @param id
+     * @return MovieDTO
+     */
+    @Override
+    public MovieDTO findMovieById(Long id) {
+        return movieMapper.mapToDto(movieRepository.findById(id).orElseThrow(() -> new MovieNotFound(id)));
+    }
+
+    /**
      * @param id
      */
     @Override
@@ -152,5 +164,16 @@ public class MovieServiceImpl implements MovieService {
         });
 
         return movieMapper.mapToMoviesDtoList(movieList);
+    }
+
+    /**
+     * Find movies by popularity status
+     *
+     * @param popularity
+     * @return List<MovieDTO> with desired popularity
+     */
+    @Override
+    public List<MovieDTO> findAllMoviesByPopularity(Popularity popularity) {
+        return movieMapper.mapToMoviesDtoList(movieRepository.findAllByPopularity(popularity));
     }
 }
