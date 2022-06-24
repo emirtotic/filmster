@@ -3,6 +3,7 @@ package com.filmster.service.impl;
 import com.filmster.dto.MovieDTO;
 import com.filmster.entity.Movie;
 import com.filmster.exception.MovieNotFound;
+import com.filmster.mapper.ActorMapper;
 import com.filmster.mapper.GenreMapper;
 import com.filmster.mapper.MovieMapper;
 import com.filmster.repository.MovieRepository;
@@ -22,6 +23,7 @@ public class MovieServiceImpl implements MovieService {
     private final MovieRepository movieRepository;
     private final MovieMapper movieMapper;
     private final GenreMapper genreMapper;
+    private final ActorMapper actorMapper;
 
 
     /**
@@ -79,6 +81,7 @@ public class MovieServiceImpl implements MovieService {
         movie.setDirector(movieData.getDirector());
         movie.setYear(movieData.getYear());
         movie.setGenre(genreMapper.mapGenres(movieData.getGenre()));
+        movie.setActors(actorMapper.mapActors(movieData.getActors()));
         movie.setPopularity(movieData.getPopularity());
 
         return movieMapper.mapToDto(movieRepository.save(movie));
