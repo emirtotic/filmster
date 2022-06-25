@@ -16,9 +16,21 @@ INSERT INTO filmster.movie_actors(movie_id, actor_id) VALUES (5, 11);
 
 INSERT INTO filmster.movie_actors(movie_id, actor_id) VALUES (6, 1);
 INSERT INTO filmster.movie_actors(movie_id, actor_id) VALUES (6, 17);
+INSERT INTO filmster.movie_actors(movie_id, actor_id) VALUES (6, 7);
 
 INSERT INTO filmster.movie_actors(movie_id, actor_id) VALUES (7, 13);
 
 INSERT INTO filmster.movie_actors(movie_id, actor_id) VALUES (8, 12);
 
 INSERT INTO filmster.movie_actors(movie_id, actor_id) VALUES (9, 9);
+
+INSERT INTO filmster.movie_actors(movie_id, actor_id) VALUES (10, 2);
+INSERT INTO filmster.movie_actors(movie_id, actor_id) VALUES (10, 7);
+
+INSERT INTO filmster.movie_actors(movie_id, actor_id) VALUES (11, 1);
+INSERT INTO filmster.movie_actors(movie_id, actor_id) VALUES (11, 7);
+
+INSERT INTO filmster.movie_actors(movie_id, actor_id) VALUES (12, 10);
+INSERT INTO filmster.movie_actors(movie_id, actor_id) VALUES (12, 17);
+
+INSERT INTO filmster.movie_actors(movie_id, actor_id) VALUES (13, 8);

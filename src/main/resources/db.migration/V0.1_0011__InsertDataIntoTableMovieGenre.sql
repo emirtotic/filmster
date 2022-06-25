@@ -28,3 +28,14 @@ INSERT INTO filmster.movie_genre(movie_id, genre_id) VALUES (8, 2);
 
 INSERT INTO filmster.movie_genre(movie_id, genre_id) VALUES (9, 9);
 INSERT INTO filmster.movie_genre(movie_id, genre_id) VALUES (9, 12);
+
+INSERT INTO filmster.movie_genre(movie_id, genre_id) VALUES (10, 3);
+
+INSERT INTO filmster.movie_genre(movie_id, genre_id) VALUES (11, 1);
+INSERT INTO filmster.movie_genre(movie_id, genre_id) VALUES (11, 2);
+
+INSERT INTO filmster.movie_genre(movie_id, genre_id) VALUES (12, 1);
+INSERT INTO filmster.movie_genre(movie_id, genre_id) VALUES (12, 3);
+
+INSERT INTO filmster.movie_genre(movie_id, genre_id) VALUES (13, 3);
+INSERT INTO filmster.movie_genre(movie_id, genre_id) VALUES (13, 6);

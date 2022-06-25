@@ -24,3 +24,15 @@ VALUES (8, 'The Princess Diaries', 'Garry Marshall', 2001, 'LOW', 'Mia Thermopol
 
 INSERT INTO filmster.movie(id, name, director, year, popularity, description)
 VALUES (9, 'The Good, the Bad and the Ugly', 'Sergio Leone', 1966, 'HIGH', 'A bounty hunting scam joins two men in an uneasy alliance against a third in a race to find a fortune in gold buried in a remote cemetery.');
+
+INSERT INTO filmster.movie(id, name, director, year, popularity, description)
+VALUES (10, 'Rain Man', 'Barry Levinson', 1988, 'HIGH', 'After a selfish L.A. yuppie learns his estranged father left a fortune to an autistic-savant brother in Ohio that he didn''t know existed, he absconds with his brother and sets out across the country, hoping to gain a larger inheritance.');
+
+INSERT INTO filmster.movie(id, name, director, year, popularity, description)
+VALUES (11, 'Meet the Fockers', 'Jay Roach', 2004, 'MEDIUM', 'All hell breaks loose when the Byrnes family meets the Focker family for the first time.');
+
+INSERT INTO filmster.movie(id, name, director, year, popularity, description)
+VALUES (12, 'Once Upon a Time in Hollywood', 'Quentin Tarantino', 2019, 'HIGH', 'A faded television actor and his stunt double strive to achieve fame and success in the final years of Hollywood''s Golden Age in 1969 Los Angeles.');
+
+INSERT INTO filmster.movie(id, name, director, year, popularity, description)
+VALUES (13, 'The Shining', 'Stanley Kubrick', 1980, 'HIGH', 'A family heads to an isolated hotel for the winter where a sinister presence influences the father into violence, while his psychic son sees horrific forebodings from both past and future.');
