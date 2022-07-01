@@ -4,11 +4,12 @@ import com.filmster.dto.MovieDTO;
 import com.filmster.enums.Popularity;
 import com.filmster.service.MovieService;
 import com.filmster.service.data.MovieData;
-import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -18,15 +19,15 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/movie")
+@RequestMapping(value = "/api/movie", produces = MediaType.APPLICATION_JSON_VALUE)
 @Validated
-@Api(value = "List of Movie API interfaces", tags = "01 Movie")
+@Tag(name = "01 Movie")
 public class MovieController {
 
     private final MovieService movieService;
 
     @Operation(summary = "Find all Movies", description = "Finding all Movies from DB")
-    @GetMapping
+    @GetMapping()
     public ResponseEntity<List<MovieDTO>> findAllMovies() {
         return new ResponseEntity<>(movieService.findAllMovies(), HttpStatus.OK);
     }

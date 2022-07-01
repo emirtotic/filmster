@@ -3,10 +3,11 @@ package com.filmster.controller;
 import com.filmster.dto.ActorDTO;
 import com.filmster.service.ActorService;
 import com.filmster.service.data.ActorData;
-import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +17,9 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/actor")
+@RequestMapping(value = "/api/actor", produces = MediaType.APPLICATION_JSON_VALUE)
 @Validated
-@Api(value = "List of Actor API interfaces", tags = "02 Actor")
+@Tag(name = "02 Actor", description = "List of Actor API's")
 public class ActorController {
 
     private final ActorService actorService;

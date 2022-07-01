@@ -1,14 +1,13 @@
 package com.filmster.controller;
 
 import com.filmster.dto.GenreDTO;
-import com.filmster.entity.Genre;
 import com.filmster.service.GenreService;
 import com.filmster.service.data.GenreData;
-import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -18,9 +17,9 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/genre")
+@RequestMapping(value = "/api/genre", produces = MediaType.APPLICATION_JSON_VALUE)
 @Validated
-@Api(value = "List of Genre API interfaces", tags = "03 Genre")
+@Tag(name = "03 Genre")
 public class GenreController {
 
     private final GenreService genreService;

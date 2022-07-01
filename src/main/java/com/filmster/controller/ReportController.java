@@ -2,8 +2,8 @@ package com.filmster.controller;
 
 import com.filmster.service.MovieService;
 import com.filmster.service.ReportService;
-import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.http.HttpStatus;
@@ -24,7 +24,7 @@ import java.net.URLConnection;
 @RequiredArgsConstructor
 @RequestMapping("/api/report")
 @Validated
-@Api(value = "List of Report API interfaces", tags = "04 Report")
+@Tag(name = "04 Report")
 public class ReportController {
 
     private final MovieService movieService;
