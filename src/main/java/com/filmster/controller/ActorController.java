@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,6 +37,7 @@ public class ActorController {
         return new ResponseEntity<>(actorService.findActorById(id), HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @Operation(summary = "Delete Actor by ID", description = "Deleting Actor by ID in DB")
     @DeleteMapping("/delete/{actorId}")
     public ResponseEntity<String> deleteById(@PathVariable(name = "actorId") Long id) {
@@ -43,12 +45,14 @@ public class ActorController {
         return new ResponseEntity<>("Actor successfully deleted.", HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @Operation(summary = "Create Actor", description = "Creating new Actor")
     @PostMapping("/create")
     public ResponseEntity<ActorDTO> createActor(@Valid @RequestBody ActorData actorData) {
         return new ResponseEntity<>(actorService.createActor(actorData), HttpStatus.CREATED);
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @Operation(summary = "Update Actor", description = "Updating an Actor")
     @PutMapping("/update/{actorId}")
     public ResponseEntity<ActorDTO> update(@PathVariable(name = "actorId") Long id, @Valid @RequestBody ActorData actorData) {

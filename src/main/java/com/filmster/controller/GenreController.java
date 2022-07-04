@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,6 +37,7 @@ public class GenreController {
         return new ResponseEntity<>(genreService.findById(id), HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @Operation(summary = "Delete By ID", description = "Delete Genre by ID")
     @DeleteMapping("/delete/{genreId}")
     public ResponseEntity<String> deleteGenre(@PathVariable(name = "genreId") Long id) {
@@ -43,12 +45,14 @@ public class GenreController {
         return new ResponseEntity<>("Genre successfully deleted.", HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @Operation(summary = "Create Genre", description = "Creating new Genre")
     @PostMapping("/create")
     public ResponseEntity<GenreDTO> createGenre(@Valid @RequestBody GenreData genreData) {
         return new ResponseEntity<>(genreService.createGenre(genreData), HttpStatus.CREATED);
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @Operation(summary = "Update Genre", description = "Update Genre")
     @PutMapping("/update/{genreId}")
     public ResponseEntity<GenreDTO> updateGenre(@PathVariable(name = "genreId") Long id, @Valid @RequestBody GenreData genreData) {

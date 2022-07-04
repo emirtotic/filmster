@@ -11,6 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,6 +33,7 @@ public class MovieController {
         return new ResponseEntity<>(movieService.findAllMovies(), HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     @Operation(summary = "Create Movie", description = "Creating new Movie")
     @PostMapping("/new/create")
     public ResponseEntity<MovieDTO> createMovie(@Valid @RequestBody MovieData movieData) {
@@ -40,7 +42,7 @@ public class MovieController {
 
     @Operation(summary = "Find Movies by Name", description = "Finding Movies from DB by Name")
     @GetMapping("/search/")
-    public ResponseEntity<List<MovieDTO>> findAllMoviesByActor(
+    public ResponseEntity<List<MovieDTO>> findAllMoviesByName(
             @RequestParam(defaultValue = StringUtils.EMPTY) String searchTerm) {
         return new ResponseEntity<>(movieService.findAllByName(searchTerm), HttpStatus.OK);
     }
@@ -52,6 +54,7 @@ public class MovieController {
         return new ResponseEntity<>(movieService.findMovieById(id), HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Update Movie", description = "Update Movie")
     @PutMapping("/update/{movieId}")
     public ResponseEntity<MovieDTO> updateMovie(@PathVariable(name = "movieId") Long id,
@@ -59,6 +62,7 @@ public class MovieController {
         return new ResponseEntity<>(movieService.updateMovie(id, movieData), HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Delete Movie", description = "Delete Movie")
     @DeleteMapping("/delete/{movieId}")
     public ResponseEntity<String> deleteMovie(@PathVariable(name = "movieId") Long id) {
