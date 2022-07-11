@@ -5,10 +5,17 @@ import java.io.InputStream;
 public interface ReportService {
 
     /**
-     * Create overall movie report
+     * Create overall PDF movie report
      * @param id
      * @return InputStream for creating pdf report
      */
-    InputStream createGeneralReport(Long id);
+    InputStream createGeneralPdfReport(Long id);
+
+    /**
+     * Create all movies report
+     *
+     * @return InputStream for creating excel .xlsx report
+     */
+    InputStream createGeneralExcelReport();
 
 }

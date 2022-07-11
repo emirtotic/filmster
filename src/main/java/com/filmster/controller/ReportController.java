@@ -31,13 +31,39 @@ public class ReportController {
     private final ReportService reportService;
 
     @Operation(summary = "Create Movie Report", description = "Creating PDF Jasper Report for the movie")
-    @GetMapping("/general/{movieId}")
+    @GetMapping("/pdf/{movieId}")
     public ResponseEntity<String> createGeneralPdfMovieReport(@PathVariable(name = "movieId") Long id, final HttpServletResponse response) throws IOException {
 
-        InputStream inputStream = reportService.createGeneralReport(id);
+        InputStream inputStream = reportService.createGeneralPdfReport(id);
 
         if (inputStream != null) {
             String generatedFileName = "MovieReport.pdf";
+            response.setContentType(URLConnection.guessContentTypeFromName(generatedFileName));
+            response.setHeader("Content-Disposition", "attachment; filename=" + generatedFileName);
+
+            try {
+                final ServletOutputStream outputStream = response.getOutputStream();
+                IOUtils.copy(inputStream, outputStream);
+                outputStream.flush();
+            } finally {
+                IOUtils.closeQuietly(inputStream);
+            }
+
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        } else {
+            response.setStatus(HttpStatus.NOT_FOUND.value());
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @Operation(summary = "Create Movie Report EXCEL", description = "Creating PDF Jasper Report for the movie EXCEL")
+    @GetMapping("/excel")
+    public ResponseEntity<String> createGeneralExcelMovieReport(final HttpServletResponse response) throws IOException {
+
+        InputStream inputStream = reportService.createGeneralExcelReport();
+
+        if (inputStream != null) {
+            String generatedFileName = "MoviesReport.xlsx";
             response.setContentType(URLConnection.guessContentTypeFromName(generatedFileName));
             response.setHeader("Content-Disposition", "attachment; filename=" + generatedFileName);
 

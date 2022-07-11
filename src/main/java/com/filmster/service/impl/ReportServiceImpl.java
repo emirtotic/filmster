@@ -2,8 +2,8 @@ package com.filmster.service.impl;
 
 import com.filmster.dto.MovieDTO;
 import com.filmster.entity.Movie;
-import com.filmster.exception.MovieNotFound;
-import com.filmster.repository.MovieRepository;
+import com.filmster.mapper.MovieMapper;
+import com.filmster.service.ExcelService;
 import com.filmster.service.JasperService;
 import com.filmster.service.MovieService;
 import com.filmster.service.ReportService;
@@ -24,6 +24,8 @@ public class ReportServiceImpl implements ReportService {
 
     private final MovieService movieService;
     private final JasperService jasperService;
+    private final ExcelService excelService;
+    private final MovieMapper movieMapper;
 
 
     /**
@@ -34,13 +36,27 @@ public class ReportServiceImpl implements ReportService {
      */
     @Override
     @Transactional(readOnly = true)
-    public InputStream createGeneralReport(Long id) {
+    public InputStream createGeneralPdfReport(Long id) {
 
         Map<String, Object> params = new HashMap<>();
         MovieReport movieReport = prepareDataForMovieReport(id);
         params.put("movieReport", movieReport);
+
         return jasperService.exportReportToPDF("/report/movie-report.jrxml", params, null);
     }
+
+    /**
+     * Create all movies report
+     *
+     * @return InputStream for creating excel .xlsx report
+     */
+    @Override
+    public InputStream createGeneralExcelReport() {
+
+        List<Movie> movies = movieMapper.mapToMoviesList(movieService.findAllMovies());
+        return excelService.exportToExcel(movies);
+    }
+
 
     public MovieReport prepareDataForMovieReport(Long movieId) {
 

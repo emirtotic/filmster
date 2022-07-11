@@ -17,6 +17,7 @@ import java.util.Set;
 @JsonInclude(value = JsonInclude.Include.NON_EMPTY)
 public class MovieDTO {
 
+    private Long id;
     private String name;
     private String description;
     private String director;
