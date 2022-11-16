@@ -21,8 +21,11 @@ import java.util.Set;
 public interface MovieMapper {
 
     Movie mapToEntity(MovieDTO movieDTO);
+
     MovieDTO mapToDto(Movie movie);
+
     List<Movie> mapToMoviesList(List<MovieDTO> movieDTOS);
+
     List<MovieDTO> mapToMoviesDtoList(List<Movie> movies);
 
     Movie mapDataToEntity(MovieData movieData);

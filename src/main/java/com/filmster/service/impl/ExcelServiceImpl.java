@@ -33,14 +33,12 @@ public class ExcelServiceImpl implements ExcelService {
             String[] columnHeadings = {"ID", "Name", "Director", "Year", "Popularity", "Description"};
 
             Font headerFont = workbook.createFont();
-            headerFont.setBold(true);
             headerFont.setFontHeightInPoints((short) 12);
-            headerFont.setColor(IndexedColors.WHITE.index);
+            headerFont.setColor(IndexedColors.WHITE.getIndex());
 
             CellStyle headerStyle = workbook.createCellStyle();
             headerStyle.setFont(headerFont);
-            headerStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-            headerStyle.setFillBackgroundColor(IndexedColors.GREY_25_PERCENT.index);
+            headerStyle.setFillBackgroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
 
             Row headerRow = sh.createRow(0);
 
@@ -76,7 +74,6 @@ public class ExcelServiceImpl implements ExcelService {
             byte[] bytes = baos.toByteArray();
 
             InputStream inputStream = new ByteArrayInputStream(bytes);
-            workbook.close();
             return inputStream;
 
         } catch (Exception e) {

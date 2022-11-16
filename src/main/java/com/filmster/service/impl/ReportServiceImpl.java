@@ -7,7 +7,7 @@ import com.filmster.service.ExcelService;
 import com.filmster.service.JasperService;
 import com.filmster.service.MovieService;
 import com.filmster.service.ReportService;
-import com.filmster.service.report.MovieReport;
+import com.filmster.report.MovieReport;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,4 +1,4 @@
-package com.filmster.service.report;
+package com.filmster.report;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

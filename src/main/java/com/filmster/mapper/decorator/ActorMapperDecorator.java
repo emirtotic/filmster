@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class ActorMapperDecorator implements ActorMapper{
+public abstract class  ActorMapperDecorator implements ActorMapper{
 
     @Autowired
     @Qualifier("delegate")
